@@ -33,33 +33,33 @@
         }
 
         .buttons {
-            position: relative;
-            height: 60px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;              /* space between Yes & No */
+    margin-top: 20px;
+    position: relative;
+}
 
-        button {
-            padding: 12px 28px;
-            font-size: 16px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
+button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
 
-        #yes {
-            background: #ff4d88;
-            color: white;
-            margin-right: 10px; 
-        }
+#yes {
+    background: #ff4d88;
+    color: white;
+}
 
-        #no {
-            position: absolute;
-            background: #ddd;
-            color: #555;
-            left: 180px;
-        }
+#no {
+    background: #ddd;
+    color: #555;
+    position: relative;   /* IMPORTANT: not absolute */
+}
+
 
         .note {
             font-size: 12px;
@@ -83,19 +83,20 @@
 </div>
 
 <script>
-    function moveNo() {
-        const noBtn = document.getElementById("no");
-        const x = Math.random() * 180;
-        const y = Math.random() * 30;
+function moveNo() {
+    const noBtn = document.getElementById("no");
 
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    }
+    const x = Math.random() * 80 - 40; // small left/right
+    const y = Math.random() * 40 - 20; // small up/down
 
-    function yesClicked() {
-        alert("Yayyy! 💕 See you on Valentine’s 😍");
-    }
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function yesClicked() {
+    alert("Yayyy! 💖 Valentine locked in 😍");
+}
 </script>
+
 
 </body>
 </html>
